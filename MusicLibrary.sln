@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicLibrary", "MusicLibrary\MusicLibrary.csproj", "{B4BA7028-CE78-4242-85C4-70B66B47C5ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicUI", "MusicUI\MusicUI.csproj", "{04190945-B7AE-492F-92FE-4834399EA828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicLibraryTests", "MusicLibraryTests\MusicLibraryTests.csproj", "{820629AC-ED04-4CE9-A034-36A109185D65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4BA7028-CE78-4242-85C4-70B66B47C5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4BA7028-CE78-4242-85C4-70B66B47C5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4BA7028-CE78-4242-85C4-70B66B47C5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4BA7028-CE78-4242-85C4-70B66B47C5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04190945-B7AE-492F-92FE-4834399EA828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04190945-B7AE-492F-92FE-4834399EA828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04190945-B7AE-492F-92FE-4834399EA828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04190945-B7AE-492F-92FE-4834399EA828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{820629AC-ED04-4CE9-A034-36A109185D65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820629AC-ED04-4CE9-A034-36A109185D65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820629AC-ED04-4CE9-A034-36A109185D65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820629AC-ED04-4CE9-A034-36A109185D65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
