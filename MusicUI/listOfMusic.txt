@@ -1,6 +1,5 @@
 Title 							Author 					Genre
 
-Bitter Sweet Symphony					The Verve					Britpop
 For What It's Worth					Buffalo Springfield			Folk Rock
 Rolling in the Deep					Adele						Pop
 (We're Gonna) Rock Around the Clock			Bill Haley and His Comets		Rock & Roll
@@ -33,21 +32,4 @@ Bohemian Rhapsody						Queen						Rock
 Let It Be							The Beatles					Rock
 Like a Rolling Stone					Bob Dylan					Folk Rock
 Yesterday							The Beatles					British Invasion
-
-
-
-
-	
-
-
-
-
-				
-				
-
-
-				
-
-
-
 

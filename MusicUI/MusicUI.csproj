@@ -11,4 +11,10 @@
       <ProjectReference Include="..\MusicLibrary\MusicLibrary.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="listOfMusic.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

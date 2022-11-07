@@ -1,5 +1,8 @@
-﻿
-using MusicLibrary;
+﻿// read songs from prepared file with song names, authors and genres
+// split them by \t and add to the list
 
-var music1 = new Music("The Beatles", "Revolver", "1966");
-Console.WriteLine(music1.GetMusicInfo());
+MusicLibrary.MusicLibrary library = new MusicLibrary.MusicLibrary();
+library.ReadSongFromFile("songs.txt");
+library.ConsolePrintMusicList();
+
+
