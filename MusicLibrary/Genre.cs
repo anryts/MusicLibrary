@@ -2,7 +2,7 @@
 
 public class Genre
 {
-    public string Name { get; }
+    private string Name { get; }
     private string Description { get; }
 
 
