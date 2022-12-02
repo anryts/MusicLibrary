@@ -41,16 +41,6 @@ public class MusicLibrary : IMainInterface
         _musicList.Remove(music);
     }
 
-    List<Music> IMainInterface.GetSongsByNamesSorted()
-    {
-        throw new NotImplementedException();
-    }
-
-    List<Music> IMainInterface.GetSongsByGenre(string genre)
-    {
-        throw new NotImplementedException();
-    }
-
     public void AddGenre(Genre genre)
     {
         throw new NotImplementedException();
@@ -67,6 +57,16 @@ public class MusicLibrary : IMainInterface
     }
 
     public void RemoveSong(string song)
+    {
+        throw new NotImplementedException();
+    }
+    /// <summary>
+    /// key can be "genre" or "name"
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public List<Music> GetSongsBySomethingSorted(string key)
     {
         throw new NotImplementedException();
     }

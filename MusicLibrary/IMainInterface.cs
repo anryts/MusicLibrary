@@ -11,9 +11,5 @@ public interface IMainInterface
     void RemoveSong(string song);
 
     /// get list of song sorted by name  
-    List<Music> GetSongsByNamesSorted();
-
-    /// get list of song for a given genre
-    List<Music> GetSongsByGenre(string genre);
-    
+    List<Music> GetSongsBySomethingSorted(string key);
 }
