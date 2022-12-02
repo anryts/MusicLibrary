@@ -1,6 +1,6 @@
 ﻿namespace MusicLibrary;
 
-public class MusicLibrary
+public class MusicLibrary : IMainInterface
 {
     private List<Music> _musicList = new List<Music>();
 
@@ -9,7 +9,6 @@ public class MusicLibrary
         Music music = new Music(title, artist, genre);
         _musicList.Add(music);
     }
-
 
     public void ReadSongFromFile(string fileName)
     {
@@ -40,5 +39,35 @@ public class MusicLibrary
     public void RemoveMusic(Music music)
     {
         _musicList.Remove(music);
+    }
+
+    List<Music> IMainInterface.GetSongsByNamesSorted()
+    {
+        throw new NotImplementedException();
+    }
+
+    List<Music> IMainInterface.GetSongsByGenre(string genre)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void AddGenre(Genre genre)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void RemoveGenre(string genre)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void AddSong(Music song)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void RemoveSong(string song)
+    {
+        throw new NotImplementedException();
     }
 }
