@@ -42,7 +42,8 @@ public class MusicLibrary : IMainInterface
 
     public void AddSong(string title, string artist, string genre)
     {
-        throw new NotImplementedException();
+        Music new_music = new Music(title, artist, genre);
+        _musicList.Add(new_music);
     }
 
     public void RemoveSong(string song)
