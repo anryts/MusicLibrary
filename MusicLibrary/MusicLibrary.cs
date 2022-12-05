@@ -4,12 +4,6 @@ public class MusicLibrary : IMainInterface
 {
     private List<Music> _musicList = new List<Music>();
 
-    private void AddMusic(string title, string artist, string genre)
-    {
-        Music music = new Music(title, artist, genre);
-        _musicList.Add(music);
-    }
-
     public void ReadSongFromFile(string fileName)
     {
         var file = File.ReadLines("listOfMusic.txt");
