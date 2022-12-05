@@ -13,7 +13,7 @@ public class MusicLibrary : IMainInterface
             try
             {
                 var split = item.Split('\t', StringSplitOptions.RemoveEmptyEntries).ToList();
-                AddMusic(split[0], split[1], split[2]);
+                AddSong(split[0], split[1], split[2]);
             }
             catch (Exception e)
             {
@@ -30,11 +30,6 @@ public class MusicLibrary : IMainInterface
         }
     }
 
-    public void RemoveMusic(Music music)
-    {
-        _musicList.Remove(music);
-    }
-
     public void AddGenre(Genre genre)
     {
         throw new NotImplementedException();
@@ -45,7 +40,7 @@ public class MusicLibrary : IMainInterface
         throw new NotImplementedException();
     }
 
-    public void AddSong(Music song)
+    public void AddSong(string title, string artist, string genre)
     {
         throw new NotImplementedException();
     }
