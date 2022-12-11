@@ -1,8 +1,15 @@
-﻿// read songs from prepared file with song names, authors and genres
-// split them by \t and add to the list
+﻿using MusicLibrary;
 
-MusicLibrary.MusicLibrary library = new MusicLibrary.MusicLibrary();
-library.ReadSongFromFile("songs.txt");
-library.ConsolePrintMusicList();
+OperationsWithData operationsWithData = new();
+
+var list = operationsWithData.ReadSongFromFile(null);
+
+list.ForEach(x=> Console.WriteLine(x.GetMusicInfo()));
+
+MusicLibrary.MusicLibrary musicLibrary = new(list, null);
+
+musicLibrary.GetSongsBySomethingSorted("favorites");
+
+musicLibrary.AddSong(new Song("Who", "DrWho", new Genre("Arthoutse", "just joke")));
 
 

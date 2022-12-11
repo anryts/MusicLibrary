@@ -1,62 +1,60 @@
 ﻿namespace MusicLibrary;
 
-public class MusicLibrary : IMainInterface
+public class MusicLibrary : IMusicService
 {
-    private List<Music> _musicList = new List<Music>();
+    private readonly List<Song> _listOfSongs;
+    private readonly List<Genre> _listOfGenres;
 
-    public void ReadSongFromFile(string fileName)
+    public MusicLibrary()
     {
-        var file = File.ReadLines("listOfMusic.txt");
-        file = file.Skip(2).ToArray();
-        foreach (var item in file)
+        _listOfGenres = new List<Genre>();
+        _listOfSongs = new List<Song>();
+    }
+    
+    public MusicLibrary(List<Song>? listOfSongs, List<Genre>? listOfGenres)
+    {
+        _listOfSongs = listOfSongs ?? new List<Song>();
+        _listOfGenres = listOfGenres ?? new List<Genre>();
+        
+        foreach (var song in _listOfSongs.Where(song => song.Genre.Name.Length!=0 && !_listOfGenres.Contains(song.Genre)))
         {
-            try
-            {
-                var split = item.Split('\t', StringSplitOptions.RemoveEmptyEntries).ToList();
-                AddSong(split[0], split[1], split[2]);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            _listOfGenres.Add(song.Genre);
         }
     }
-
-    public void ConsolePrintMusicList()
-    {
-        foreach (var music in _musicList)
-        {
-            Console.WriteLine(music.GetMusicInfo());
-        }
-    }
-
+    
     public void AddGenre(Genre genre)
     {
-        throw new NotImplementedException();
+        _listOfGenres.Add(genre);
     }
 
-    public void RemoveGenre(string genre)
+    public void RemoveGenre(string genreName)
     {
-        throw new NotImplementedException();
+        var genre = _listOfGenres.FirstOrDefault(x => x.Name == genreName);
+        
     }
 
-    public void AddSong(string title, string artist, string genre)
+    public void AddSong(Song song)
     {
-        throw new NotImplementedException();
+        _listOfSongs.Add(song);
     }
 
-    public void RemoveSong(string song)
+    public void RemoveSong(string titleOfSong)
     {
-        throw new NotImplementedException();
+        var song = _listOfSongs.FirstOrDefault(x => x.Title == titleOfSong);
     }
-    /// <summary>
-    /// key can be "genre" or "name"
-    /// </summary>
-    /// <param name="key"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public List<Music> GetSongsBySomethingSorted(string key)
+    
+    public List<Song> GetSongsBySomethingSorted(string key)
     {
-        throw new NotImplementedException();
+        switch (key)
+        {
+            case "favorites":
+                return _listOfSongs;
+            case "genre":
+                return _listOfSongs;
+            default:
+                throw new Exception("key is not correct");
+        }
     }
+    
+    
 }
