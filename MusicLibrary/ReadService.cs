@@ -1,8 +1,8 @@
 namespace MusicLibrary;
 
-public class OperationsWithData
+public class ReadService: IReadService
 {
-    public List<Song>? ReadSongFromFile(string? fileName)
+    public List<Song>? ReadSongs(string? fileName)
     {
         var list = new List<Song>();
         var file = File.ReadLines(fileName ??= "listOfMusic.txt");

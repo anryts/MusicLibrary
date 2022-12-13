@@ -6,7 +6,7 @@ public class Song
     private string Artist { get; }
     public Genre Genre { get; }
 
-    private bool IsFavourite { get; set; }
+    public bool IsFavourite { get; private set; }
 
     public Song(string title, string artist, Genre genre)
     {

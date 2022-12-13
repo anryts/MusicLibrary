@@ -10,5 +10,5 @@ public interface IMusicService
 
     void RemoveSong(string titleOfSong);
 
-    List<Song> GetSongsBySomethingSorted(string key);
+    List<Song> GetSongsBySomethingSorted(string key, Genre genre);
 }

@@ -2,55 +2,63 @@
 
 public class MusicLibrary : IMusicService
 {
-    private readonly List<Song> _listOfSongs;
-    private readonly List<Genre> _listOfGenres;
+    private readonly IReadService _readService;
+    private readonly IReturnService _returnService;
+    private readonly IPrintService _printService;
 
-    public MusicLibrary()
+    public MusicLibrary(IReturnService returnService, IReadService readService, IPrintService printService)
     {
-        _listOfGenres = new List<Genre>();
-        _listOfSongs = new List<Song>();
-    }
-    
-    public MusicLibrary(List<Song>? listOfSongs, List<Genre>? listOfGenres)
-    {
-        _listOfSongs = listOfSongs ?? new List<Song>();
-        _listOfGenres = listOfGenres ?? new List<Genre>();
-        
-        foreach (var song in _listOfSongs.Where(song => song.Genre.Name.Length!=0 && !_listOfGenres.Contains(song.Genre)))
-        {
-            _listOfGenres.Add(song.Genre);
-        }
+        _returnService = returnService;
+        _readService = readService;
+        _printService = printService;
     }
     
     public void AddGenre(Genre genre)
     {
-        _listOfGenres.Add(genre);
+        InMemoryCollection.Genres.Add(genre);
     }
 
     public void RemoveGenre(string genreName)
     {
-        var genre = _listOfGenres.FirstOrDefault(x => x.Name == genreName);
+        var genre = InMemoryCollection.Genres.FirstOrDefault(x => x.Name == genreName);
         
     }
 
+    public void AddSongs(string? path)
+    {
+       var result = _readService.ReadSongs(path);
+       InMemoryCollection.Songs.AddRange(result);
+    }
+    
+    public void PrintSongs()
+    {
+        _printService.Print(InMemoryCollection.Songs);
+    }
+    
     public void AddSong(Song song)
     {
-        _listOfSongs.Add(song);
+        InMemoryCollection.Songs.Add(song);
     }
 
     public void RemoveSong(string titleOfSong)
     {
-        var song = _listOfSongs.FirstOrDefault(x => x.Title == titleOfSong);
+        var song = InMemoryCollection.Songs.FirstOrDefault(x => x.Title == titleOfSong);
     }
-    
-    public List<Song> GetSongsBySomethingSorted(string key)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="key">favorites or genre</param>
+    /// <param name="genre">optionally</param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public List<Song> GetSongsBySomethingSorted(string key, Genre? genre)
     {
         switch (key)
         {
             case "favorites":
-                return _listOfSongs;
+                return _returnService.GetSongsSortedByTitle();
             case "genre":
-                return _listOfSongs;
+                return _returnService.GetSongsSortedByGenre(genre);
             default:
                 throw new Exception("key is not correct");
         }
