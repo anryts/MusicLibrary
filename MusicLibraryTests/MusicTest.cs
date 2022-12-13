@@ -1,43 +1,21 @@
 using MusicLibrary;
+using System;
 
 namespace MusicLibraryTests;
 
 public class MusicTest
 {
+    // "@$!&*(" - not polite word (for test)
     [Fact]
-    public void AddSongTestErrorfalse()
-    {
-        bool error = false;
-        // Arrange
-        // Act
-        try
-        {
-            void DoAction(IMainInterface Action) => Action.AddSong("Beat it", "Mickael Jackson", "Rock-n-roll");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.ToString());
-            error = true;
-        }      
-        // Assert
-        Assert.False(error);
+    public void AddSongTestTrueIfWeHaveException()
+    {        
+        var music_library = new MusicLibrary.MusicLibrary();       
+        Assert.Throws<Exception>(() => music_library.AddSong("Beat it", "Mickael Jackson", "Rock-n-roll"));
     }
     [Fact]
-    public void AddSongTestErrortrue()
+    public void AddSongTestTrueIfWeHaveNotException()
     {
-        bool error = true;
-        // Arrange
-        // Act
-        try
-        {
-            void DoAction(IMainInterface Action) => Action.AddSong("Beat it", "Mickael Jackson", "Rock-n-roll");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.ToString());
-            error = true;
-        }
-        // Assert
-        Assert.True(error);
+        var music_library = new MusicLibrary.MusicLibrary();
+        Assert.True(music_library.AddSong("Beat it", "Mickael Jackson", "Rock-n-roll"));          
     }
 }

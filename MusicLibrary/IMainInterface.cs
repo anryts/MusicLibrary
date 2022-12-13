@@ -6,7 +6,7 @@ public interface IMainInterface
 
     void RemoveGenre(string genre);   
 
-    void AddSong(string title, string artist, string genre);
+    bool AddSong(string title, string artist, string genre);
 
     void RemoveSong(string song);
 
