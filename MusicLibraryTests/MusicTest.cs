@@ -5,55 +5,56 @@ namespace MusicLibraryTests;
 
 public class MusicTest
 {
-    // [Fact]
-    // public void Test()
-    // {
-    //     var mock = new Mock<IReadService>();
-    //     mock.Setup(x => x.ReadSongs(null))
-    //         .Returns(new List<Song>()
-    //         {
-    //             new Song("MockTest", "Andrii.H", new Genre("Test", null))
-    //         });
-    //     var mock2 = new Mock<IReturnService>();
-    //     var expectedString = "MockTest";
-    //
-    //     MusicLibrary.MusicLibrary musicLibrary = new MusicLibrary
-    //         .MusicLibrary(mock2.Object, mock.Object, new PrintIntoConsoleService());
-    //
-    //     Assert.Equal(expectedString, musicLibrary
-    //         .GetSongsBySomethingSorted("genre", new Genre("Test", null))[0].GetMusicInfo());
-    // }
+    [Fact]
+    public void TestReturnService_Nothing_ShouldReturnListOfSongs()
+    {
+        var expectedSongs = new List<Song>(new []
+            {
+                new Song("MockTest", "Andrii.H", new Genre("Test", null)), 
+            }
+        );
 
-    // public void Test2()
-    // {
-    //     List<Song> testSongs = new List<Song>();
-    //
-    //     var mock2 = new Mock<IPrintService>();
-    //     mock2.Setup(x => x.Print(testSongs))
-    //         .Callback(() => Console.WriteLine("Mocked"));
-    //     var mock1 = new Mock<IReturnService>();
-    //     var expectedString = "MockTest";
-    //
-    //     MusicLibrary.MusicLibrary musicLibrary = new MusicLibrary
-    //         .MusicLibrary(mock1.Object, mock2.Object, new PrintIntoConsoleService());
-    //
-    //     Assert.Equal(expectedString, musicLibrary
-    //         .GetSongsBySomethingSorted("genre", new Genre("Test", null))[0].GetMusicInfo());
-    // }
+        var mock = new Mock<IReadService>();
+        mock.Setup(x => x.ReadSongs(null))
+            .Returns(new List<Song>()
+            {
+                new Song("MockTest", "Andrii.H", new Genre("Test", null))
+            });
+        
+        var musicLibrary = new MusicLibrary
+            .MusicLibrary(new ReturnService(), mock.Object, new PrintIntoConsoleService(), new InMemoryCollection(new List<Song>(), new List<Genre>()));
+        musicLibrary.AddSongs(null);
+        var actual = musicLibrary.GetSongsBySomethingSorted("test", null);
+        Assert.Equal(expectedSongs.Count, actual.Count);
+    }
+    
+    [Fact]
+    public void TestReadService_Nothing_ShouldReturnList()
+    {
+        const string testPath = "testListOfMusic.txt";
+        var mock = new Mock<IPrintService>();
+        var expectedCollection = new List<Song>(new[]
+        {
+            new Song("MockTest", "Andrii.H", new Genre("Test", null))
+        });
+
+        var musicLibrary = new MusicLibrary.
+            MusicLibrary(new ReturnService(), new ReadService(), mock.Object, new InMemoryCollection(null, null));
+        musicLibrary.AddSongs(testPath);
+        var actualCollection = musicLibrary.GetSongsBySomethingSorted("test", null);
+        Assert.Equal(expectedCollection.Count, actualCollection.Count);
+    }
 
     [Fact]
-    public void Test3()
+    public void TestReturnList_Nothing_ShouldReturnSortedList()
     {
-        List<Song> expectedSongs = new List<Song>(new []{
-            new Song("MockTest", "Andrii.H", new Genre("Test", null)), 
+        var expectedSongs = new List<Song>(new []
+            {
+                new Song("MockTest", "Andrii.H", new Genre("Test", null)), 
             }
-            );
-
-        var mock = new Mock<IReturnService>();
+        );
         var mock2 = new Mock<IPrintService>();
-
-        
-        
+        var mock3 = new Mock<IReadService>();
         var testData = new InMemoryCollection(new List<Song>(
                 new []
                 {
@@ -62,11 +63,15 @@ public class MusicTest
             ), null
         );
 
-        MusicLibrary.MusicLibrary musicLibrary = new MusicLibrary
-            .MusicLibrary(new ReturnService(), new ReadService(), mock2.Object, testData);
+        var musicLibrary = new MusicLibrary
+            .MusicLibrary(new ReturnService(),mock3.Object , mock2.Object, testData);
         
         var actualSongs = musicLibrary.GetSongsBySomethingSorted("genre", new Genre("Test", null));
-        Assert.Equal(expectedSongs[0].Title, actualSongs[0].Title);
+        Assert.Collection(actualSongs,  song =>
+        {
+            if(song.Genre.Name=="Test");
+        });
+
     }
 
 }

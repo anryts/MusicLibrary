@@ -2,6 +2,10 @@
 
 public class ReturnService : IReturnService
 {
+    public List<Song>? GetSongs(List<Song>? songs)
+    {
+        return songs;
+    }
     public List<Song> GetSongsSortedByTitle(List<Song>? songs)
     {
         return songs.Where(x => x.IsFavourite)

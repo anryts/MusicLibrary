@@ -12,7 +12,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="listOfMusic.txt">
+      <None Update="testListOfMusic.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="testListOfMusic.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

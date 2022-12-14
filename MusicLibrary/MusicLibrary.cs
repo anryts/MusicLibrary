@@ -6,6 +6,7 @@ public class MusicLibrary : IMusicService
     private readonly IReturnService _returnService;
     private readonly IPrintService _printService;
     private readonly IInMemoryCollection _inMemoryCollection;
+    
     public MusicLibrary(IReturnService returnService, IReadService readService, IPrintService printService, IInMemoryCollection inMemoryCollection)
     {
         _returnService = returnService;
@@ -67,7 +68,7 @@ public class MusicLibrary : IMusicService
                     throw new Exception("Genre is null");
                 return _returnService.GetSongsSortedByGenre(_inMemoryCollection.Songs, genre);
             default:
-                throw new Exception("key is not correct");
+                return _returnService.GetSongs(_inMemoryCollection.Songs);
         }
     }
     

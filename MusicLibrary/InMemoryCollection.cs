@@ -14,8 +14,8 @@ public class InMemoryCollection : IInMemoryCollection
 
     public InMemoryCollection(List<Song>? songs, List<Genre>? genres)
     {
-        Songs = songs;
-        Genres = genres;
+        Songs = songs ?? new List<Song>();
+        Genres = genres ?? new List<Genre>();
     }
     
 }
