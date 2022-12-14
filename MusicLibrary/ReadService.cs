@@ -14,6 +14,7 @@ public class ReadService: IReadService
                 .ToList();
             if (split.Count == 0)
                 break;
+            
             list.Add(new Song(split[0], split[1], new Genre(split[2], null)));            
         }
         return list;

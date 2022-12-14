@@ -1,7 +1,21 @@
 ﻿namespace MusicLibrary;
 
-public static class InMemoryCollection
+public interface IInMemoryCollection
 {
-    public static List<Song> Songs { get; } = new List<Song>();
-    public static List<Genre> Genres { get; } = new List<Genre>();
+    List<Song>? Songs { get; }
+    List<Genre>? Genres { get; }
+}
+
+public class InMemoryCollection : IInMemoryCollection
+{
+    public  List<Song>? Songs { get; }
+    public  List<Genre>? Genres { get; }
+
+
+    public InMemoryCollection(List<Song>? songs, List<Genre>? genres)
+    {
+        Songs = songs;
+        Genres = genres;
+    }
+    
 }

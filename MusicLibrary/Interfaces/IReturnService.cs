@@ -2,7 +2,6 @@
 
 public interface IReturnService
 {
-    List<Song> GetSongs();
-    List<Song> GetSongsSortedByTitle();
-    List<Song> GetSongsSortedByGenre(Genre genre);
+    List<Song> GetSongsSortedByTitle(List<Song>? songs);
+    List<Song> GetSongsSortedByGenre(List<Song>? songs ,Genre genre);
 }

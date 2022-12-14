@@ -2,5 +2,5 @@
 
 public interface IPrintService
 {
-    void Print(List<Song> songs);
+    void Print(List<Song>? songs);
 }

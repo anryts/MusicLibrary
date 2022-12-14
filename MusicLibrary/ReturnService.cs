@@ -1,21 +1,16 @@
 ﻿namespace MusicLibrary;
 
-public class ReturnService: IReturnService
+public class ReturnService : IReturnService
 {
-    public List<Song> GetSongs()
+    public List<Song> GetSongsSortedByTitle(List<Song>? songs)
     {
-        return InMemoryCollection.Songs;
-    }
-
-    public List<Song> GetSongsSortedByTitle()
-    {
-        return InMemoryCollection.Songs.Where(x=>x.IsFavourite)
+        return songs.Where(x => x.IsFavourite)
             .OrderBy(s => s.Title).ToList();
     }
 
-    public List<Song> GetSongsSortedByGenre(Genre genre)
+    public List<Song> GetSongsSortedByGenre(List<Song>? songs, Genre genre)
     {
-        return InMemoryCollection.Songs.Where(x=> x.Genre.Name == genre.Name)
+        return songs.Where(x => x.Genre.Name == genre.Name)
             .OrderBy(s => s.Title).ToList();
     }
 }
