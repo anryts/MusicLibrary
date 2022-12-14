@@ -15,7 +15,7 @@
       <None Update="testListOfMusic.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="testListOfMusic.txt">
+      <None Update="listOfMusic.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

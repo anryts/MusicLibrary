@@ -6,15 +6,15 @@ public class ReadService: IReadService
     {
         var list = new List<Song>();
         var file = File.ReadLines(fileName ??= "listOfMusic.txt");
-        // because txt file, have in first row Name of column, second empty row
-        file = file.Skip(2).ToArray(); 
-        foreach (var item in file)
+        var checkedFile = file.Where(x => x.Length!=0 && !x.Contains("Title"))
+            .ToList();
+        ;
+        foreach (var item in checkedFile)
         {
-            var split = item.Split('\t', StringSplitOptions.RemoveEmptyEntries)
+            var split = item.Split('|', StringSplitOptions.TrimEntries)
                 .ToList();
             if (split.Count == 0)
                 break;
-            
             list.Add(new Song(split[0], split[1], new Genre(split[2], null)));            
         }
         return list;

@@ -48,11 +48,6 @@ public class MusicTest
     [Fact]
     public void TestReturnList_Nothing_ShouldReturnSortedList()
     {
-        var expectedSongs = new List<Song>(new []
-            {
-                new Song("MockTest", "Andrii.H", new Genre("Test", null)), 
-            }
-        );
         var mock2 = new Mock<IPrintService>();
         var mock3 = new Mock<IReadService>();
         var testData = new InMemoryCollection(new List<Song>(
@@ -66,12 +61,12 @@ public class MusicTest
         var musicLibrary = new MusicLibrary
             .MusicLibrary(new ReturnService(),mock3.Object , mock2.Object, testData);
         
-        var actualSongs = musicLibrary.GetSongsBySomethingSorted("genre", new Genre("Test", null));
+        var actualSongs = musicLibrary.GetSongsBySomethingSorted
+            ("genre", new Genre("Test", null));
+        
         Assert.Collection(actualSongs,  song =>
         {
-            if(song.Genre.Name=="Test");
+            if (song.Genre.Name == "Test");
         });
-
     }
-
 }

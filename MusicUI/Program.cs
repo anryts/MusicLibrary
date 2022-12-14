@@ -12,7 +12,7 @@ var library = new MusicLibrary.MusicLibrary(new ReturnService(), new ReadService
         ));
 
 library.AddSongs(null);
-var result = library.GetSongsBySomethingSorted("genre", new Genre("Rock", null));
+var result = library.GetSongsBySomethingSorted("genre", new Genre("Folk Rock", null));
 result.ForEach(x => Console.WriteLine(x.GetMusicInfo()));
 
 

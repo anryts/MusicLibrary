@@ -1,35 +1,17 @@
 Title 							                Author 					        Genre
 
-For What It's Worth					            Buffalo Springfield	    		Folk Rock
-Rolling in the Deep					            Adele					    	Pop
-(We're Gonna) Rock Around the Clock			    Bill Haley and His Comets		Rock & Roll
-Sultans of Swing						        Dire Straits				    Roots Rock
-California Dreamin					            The Mamas and the Papas			Pop
-Lose Yourself						            Eminem	    				    Hip-Hop
-I Still Haven't Found What I'm Looking For	    U2			    			    Rock
-Baba O'Riley						            The Who			    		    Rock
-Everything in its Right Place				    Radiohead					    Electronic
-You Can't Always Get What You Want			    the Rolling Stones			    Rock
-Go Your Own Way						            Fleetwood Mac				    Rock
-California Girls						        The Beach Boys				    Pop
-Sweet Child o' Mine					            Guns N' Roses				    Glam Metal
-Heroes							                David Bowie					    Rock
-White Rabbit						            Jefferson Airplane			    Psychedelic Rock
-Suspicious Minds						        Elvis Presley				    Blue-Eyed Soul
-Get Up, Stand UP						        Bob Marley and The Wailers		Reggae
-Waterloo Sunset						            The Kinks					    Rock
-Maybellene							            Chuck Berry					    Chess
-One								                U2						        Rock
-Billie Jean							            Michael Jackson				    Dance-Pop
-Whole Lotta Love						        Led Zeppelin				    Hard Rock
-(I Can't Get No) Satisfaction				    The Rolling Stones			    Rock
-Don't Be Cruel						            Elvis Presley				    Rock & Roll
-Strawberry Fields Forever				        The Beatles					    Psychedelic Rock
-God Only Knows						            The Beach Boys				    Baroque Pop
-Smells Like Teen Spirit					        Nirvana					        Grunge		
-I Want to Hold Your Hand				        The Beatles					    British Invasion
-Bohemian Rhapsody						        Queen						    Rock
-Let It Be							            The Beatles					    Rock
-Like a Rolling Stone					        Bob Dylan					    Folk Rock
-Yesterday							            The Beatles					    British Invasion
-
+For What It's Worth                        |    Buffalo Springfield    		|  Folk Rock
+Rolling in the Deep~				       |    Adele					    |  Pop
+(We're Gonna) Rock Around the Clock~	   |    Bill Haley and His Comets	|  Rock & Roll
+Sultans of Swing,						   |    Dire Straits				|  Roots Rock
+California Dreamin,					       |    The Mamas and the Papas		|  Pop
+Lose Yourself,						       |    Eminem	    			    |  Hip-Hop
+I Still Haven't Found What I'm Looking For |    U2			    			|  Rock
+Baba O'Riley,						       |    The Who			    		|  Rock
+Everything in its Right Place,			   |    Radiohead					|  Electronic
+You Can't Always Get What You Want,		   |    the Rolling Stones			|  Rock
+Go Your Own Way,						   |    Fleetwood Mac				|  Rock
+California Girls,						   |    The Beach Boys				|  Pop
+Sweet Child o' Mine,					   |    Guns N' Roses				|  Glam Metal
+Heroes,							           |     David Bowie				|  Rock
+White Rabbit ,						       |    Jefferson Airplane			|  Psychedelic Rock
