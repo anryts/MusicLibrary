@@ -8,7 +8,7 @@ public interface IMainInterface
 
     bool AddSong(string title, string artist, string genre);
 
-    void RemoveSong(string song);
+    bool RemoveSong(string song);
 
     /// get list of song sorted by name  
     List<Music> GetSongsBySomethingSorted(string key);

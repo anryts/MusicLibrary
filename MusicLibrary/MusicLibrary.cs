@@ -66,10 +66,14 @@ public class MusicLibrary : IMainInterface
         return true;
     }
 
-    public void RemoveSong(string song)
+    public bool RemoveSong(string song)
     {
-        throw new NotImplementedException();
+        if(musicList.Count == 0)
+            throw new Exception();
+
+        return musicList.Remove(musicList.Find(x => x.Title == song)!);
     }
+
     /// <summary>
     /// key can be "genre" or "name"
     /// </summary>
