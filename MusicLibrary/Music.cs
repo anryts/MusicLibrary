@@ -2,11 +2,11 @@
 
 public class Music
 {
-    private string Title { get;  }
-    private string Artist { get; }
-    private string GenreName { get; }
+    public string Title { get; set; }
+    public string Artist { get; set; }
+    public string GenreName { get; set; }
 
-    private bool IsFavourite { get; set; }
+    public bool IsFavourite { get; set; }
 
     public Music(string title, string artist, string genre)
     {
