@@ -12,4 +12,6 @@ public interface IMainInterface
 
     /// get list of song sorted by name  
     List<Music> GetSongsBySomethingSorted(string key);
+
+    bool AddSongToFavourites(string title, List<Music> listName);
 }

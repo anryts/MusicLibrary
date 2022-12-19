@@ -80,4 +80,17 @@ public class MusicLibrary : IMainInterface
     {
         throw new NotImplementedException();
     }
+
+    public bool AddSongToFavourites(string title, List<Music> listName)
+    {
+        for (int i = 0; i < listName.Count; i++)
+        {
+            if (listName[i].Title.Equals(title))
+            {
+                listName[i].SetFavourite();
+                return true;
+            }
+        }
+        return false;
+    }
 }
