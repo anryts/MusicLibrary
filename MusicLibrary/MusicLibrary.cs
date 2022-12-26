@@ -54,7 +54,7 @@ public class MusicLibrary : IMainInterface
             genres.Remove(result);
             throw new ArgumentException("Genre with this Name does not Exsist");
         }
-        new ArgumentNullException(nameof(genre));
+        throw new ArgumentNullException(nameof(genre));
     }
 
     public bool AddSong(string title, string artist, string genre)
