@@ -83,6 +83,11 @@ public class MusicLibrary : IMainInterface
 
     public bool AddSongToFavourites(string title, List<Music> listName)
     {
+        if (title == null || listName == null)
+        {
+            return false;
+        }
+
         if (title != title.ToUpper())
         {
             title = title.ToUpper();
