@@ -31,30 +31,23 @@ public class MusicLibrary : IMainInterface
             Console.WriteLine(music.GetMusicInfo());
         }
     }
-
     public void AddGenre(Genre genre)
     {
         if (genre is null)
-        {
             throw new ArgumentNullException(nameof(genre));
-        }
-        if (genre.Name.Length is not 0 && genre.Description.Length is not 0)
-        {
-            genres.Add(genre);
-        }
-        throw new ArgumentException("Name or Description length was 0");
+
+        if (genre.Name.Length is 0 || genre.Description.Length is 0)
+            throw new ArgumentException("Name or Description length was 0");
+        genres.Add(genre);
     }
 
     public void RemoveGenre(string genre)
     {
-        if (genre.Length is not 0)
-        {
-            var result = genres.FirstOrDefault(x => x.Name == genre);
-            if (result is not null)
-            genres.Remove(result);
-            throw new ArgumentException("Genre with this Name does not Exsist");
-        }
-        throw new ArgumentNullException(nameof(genre));
+        if (genre.Length is 0) throw new ArgumentNullException(nameof(genre));
+        var result = genres.FirstOrDefault(x => x.Name == genre);
+        if (result is null)
+            throw new ArgumentException("Genre with this Name does not Exists");
+        genres.Remove(result);
     }
 
     public bool AddSong(string title, string artist, string genre)
