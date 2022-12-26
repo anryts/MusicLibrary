@@ -58,7 +58,7 @@ public class MusicTest
     {
         //Arrange
         var music_library = new MusicLibrary.MusicLibrary();
-        var Test_music = new Music("Beat it", "Mickael Jackson", "Rock-n-roll");
+        var Test_music = new Music("BEAT IT", "Mickael Jackson", "Rock-n-roll");
         var Test_music2 = new Music("DOGLAND", "PEOPLE1", "Rap");
         List<Music> musicList = new List<Music>();
 
