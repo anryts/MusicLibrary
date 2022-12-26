@@ -53,4 +53,20 @@ public class MusicTest
         Assert.False(music_library.AddSongToFavourites("KICK BACK", musicList));
     }
 
+    [Fact]
+    public void AddToFavouriteUppercase()
+    {
+        //Arrange
+        var music_library = new MusicLibrary.MusicLibrary();
+        var Test_music = new Music("Beat it", "Mickael Jackson", "Rock-n-roll");
+        var Test_music2 = new Music("DOGLAND", "PEOPLE1", "Rap");
+        List<Music> musicList = new List<Music>();
+
+        //Act
+        musicList.Add(Test_music);
+        musicList.Add(Test_music2);
+
+        //Assert
+        Assert.True(music_library.AddSongToFavourites("Dogland", musicList));
+    }
 }
