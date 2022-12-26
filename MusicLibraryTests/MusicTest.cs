@@ -69,4 +69,21 @@ public class MusicTest
         //Assert
         Assert.True(music_library.AddSongToFavourites("Dogland", musicList));
     }
+
+    [Fact]
+    public void AddToFavouriteNull()
+    {
+        //Arrange
+        var music_library = new MusicLibrary.MusicLibrary();
+        var Test_music = new Music("BEAT IT", "Mickael Jackson", "Rock-n-roll");
+        var Test_music2 = new Music("DOGLAND", "PEOPLE1", "Rap");
+        List<Music> musicList = new List<Music>();
+
+        //Act
+        musicList.Add(Test_music);
+        musicList.Add(Test_music2);
+
+        //Assert
+        Assert.False(music_library.AddSongToFavourites(null, null));
+    }
 }
