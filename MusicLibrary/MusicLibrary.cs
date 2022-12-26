@@ -4,6 +4,7 @@ public class MusicLibrary : IMainInterface
 {
     private List<Music> musicList = new List<Music>();
     private List<string> not_polite_words = new List<string>() { "@$!&*(", "%^&&@", "!@)^&$#"};
+    private List<Genre> genres = new List<Genre>();
 
     public void ReadSongFromFile(string fileName)
     {
@@ -33,12 +34,27 @@ public class MusicLibrary : IMainInterface
 
     public void AddGenre(Genre genre)
     {
-        throw new NotImplementedException();
+        if (genre is null)
+        {
+            throw new ArgumentNullException(nameof(genre));
+        }
+        if (genre.Name.Length is not 0 && genre.Description.Length is not 0)
+        {
+            genres.Add(genre);
+        }
+        throw new ArgumentException("Name or Description length was 0");
     }
 
     public void RemoveGenre(string genre)
     {
-        throw new NotImplementedException();
+        if (genre.Length is not 0)
+        {
+            var result = genres.FirstOrDefault(x => x.Name == genre);
+            if (result is not null)
+            genres.Remove(result);
+            throw new ArgumentException("Genre with this Name does not Exsist");
+        }
+        new ArgumentNullException(nameof(genre));
     }
 
     public bool AddSong(string title, string artist, string genre)

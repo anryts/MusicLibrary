@@ -18,4 +18,18 @@ public class MusicTest
         var music_library = new MusicLibrary.MusicLibrary();
         Assert.True(music_library.AddSong("Beat it", "Mickael Jackson", "Rock-n-roll"));          
     }
+    
+    [Fact]
+    public void AddGenre_Genre_ThrowNewException()
+    {
+        var music_library = new MusicLibrary.MusicLibrary();
+        Assert.Throws<ArgumentNullException>(() => music_library.AddGenre(null));
+    }
+
+    [Fact]
+    public void RemoveGenre_Genre_ThrowNewException()
+    {
+        var music_library = new MusicLibrary.MusicLibrary();
+        Assert.Throws<NullReferenceException>(() => music_library.RemoveGenre(null));
+    }
 }
