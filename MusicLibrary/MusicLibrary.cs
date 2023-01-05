@@ -36,14 +36,14 @@ public class MusicLibrary : IMainInterface
         if (genre is null)
             throw new ArgumentNullException(nameof(genre));
 
-        if (genre.Name.Length is 0 || genre.Description.Length is 0)
+        if (genre.Name is string.IsNullOrWhiteSpace|| genre.Description is string.IsNullOrWhiteSpace)
             throw new ArgumentException("Name or Description length was 0");
         genres.Add(genre);
     }
 
     public void RemoveGenre(string genre)
     {
-        if (genre.Length is 0) throw new ArgumentNullException(nameof(genre));
+        if (genre is string.IsNullOrWhiteSpace) throw new ArgumentNullException(nameof(genre));
         var result = genres.FirstOrDefault(x => x.Name == genre);
         if (result is null)
             throw new ArgumentException("Genre with this Name does not Exists");
